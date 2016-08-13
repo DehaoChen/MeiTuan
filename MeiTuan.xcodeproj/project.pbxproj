@@ -12,6 +12,7 @@
 		8364B4551D5EDCAC004F4A1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4541D5EDCAC004F4A1A /* Assets.xcassets */; };
 		8364B4581D5EDCAC004F4A1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4561D5EDCAC004F4A1A /* LaunchScreen.storyboard */; };
 		83E4DA4B1D5F77C500E42295 /* CDH_HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E4DA4A1D5F77C500E42295 /* CDH_HomeViewController.swift */; };
+		83E4DA4D1D5F78D800E42295 /* CDH_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E4DA4C1D5F78D800E42295 /* CDH_NavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		8364B4571D5EDCAC004F4A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8364B4591D5EDCAC004F4A1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83E4DA4A1D5F77C500E42295 /* CDH_HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_HomeViewController.swift; sourceTree = "<group>"; };
+		83E4DA4C1D5F78D800E42295 /* CDH_NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_NavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				83E4DA4A1D5F77C500E42295 /* CDH_HomeViewController.swift */,
+				83E4DA4C1D5F78D800E42295 /* CDH_NavigationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			files = (
 				8364B44E1D5EDCAC004F4A1A /* AppDelegate.swift in Sources */,
 				83E4DA4B1D5F77C500E42295 /* CDH_HomeViewController.swift in Sources */,
+				83E4DA4D1D5F78D800E42295 /* CDH_NavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
