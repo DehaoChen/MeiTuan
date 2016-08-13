@@ -1,2 +1,2 @@
 # MeiTuan
-美图-iPad
+美团-iPad
