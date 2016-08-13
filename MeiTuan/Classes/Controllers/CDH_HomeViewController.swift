@@ -14,7 +14,7 @@ class CDH_HomeViewController: UIViewController {
     // MARK: - 懒加载自定义的items控件
     lazy var categoryItem : UIBarButtonItem = {
         // 初始化分类 Item
-        let categoryView = CDH_BarButtonItemView.barButtonItemView(UIImage(named: "icon_category_-1")!, highlightedImage: UIImage(named: "icon_category_highlighted_-1")!, title: "美团", subTitleLabel: "全部分类")
+        let categoryView = CDH_BarButtonItemView.barButtonItemView(UIImage(named: "icon_category_-1")!, highlightedImage: UIImage(named: "icon_category_highlighted_-1")!, title: "美团", subTitle: "全部分类")
         let categoryItem = UIBarButtonItem(customView: categoryView)
         
         // 监听点击事件
@@ -23,7 +23,7 @@ class CDH_HomeViewController: UIViewController {
     }()
     lazy var districtItem : UIBarButtonItem = {
         // 初始化分类 Item
-        let districtView = CDH_BarButtonItemView.barButtonItemView(UIImage(named: "icon_district" )!, highlightedImage: UIImage(named: "icon_district_highlighted")!, title: "广州", subTitleLabel: "全部区域")
+        let districtView = CDH_BarButtonItemView.barButtonItemView(UIImage(named: "icon_district" )!, highlightedImage: UIImage(named: "icon_district_highlighted")!, title: "广州", subTitle: "全部区域")
         
         let districtItem = UIBarButtonItem(customView: districtView)
         

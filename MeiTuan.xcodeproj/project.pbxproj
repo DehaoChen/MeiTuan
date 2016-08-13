@@ -14,6 +14,8 @@
 		83DC4CAF1D5F807F00939B82 /* CDH_BarButtonItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC4CAE1D5F807F00939B82 /* CDH_BarButtonItemView.swift */; };
 		83DC4CB11D5F808900939B82 /* CDH_BarButtonItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83DC4CB01D5F808900939B82 /* CDH_BarButtonItemView.xib */; };
 		83DC4CB31D5F95D000939B82 /* CDH_CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC4CB21D5F95D000939B82 /* CDH_CategoryViewController.swift */; };
+		83DC4CB51D5F977600939B82 /* CDH_DistrictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC4CB41D5F977600939B82 /* CDH_DistrictViewController.swift */; };
+		83DC4CB71D5F978600939B82 /* CDH_SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC4CB61D5F978600939B82 /* CDH_SortViewController.swift */; };
 		83E4DA4B1D5F77C500E42295 /* CDH_HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E4DA4A1D5F77C500E42295 /* CDH_HomeViewController.swift */; };
 		83E4DA4D1D5F78D800E42295 /* CDH_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E4DA4C1D5F78D800E42295 /* CDH_NavigationController.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +30,8 @@
 		83DC4CAE1D5F807F00939B82 /* CDH_BarButtonItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_BarButtonItemView.swift; sourceTree = "<group>"; };
 		83DC4CB01D5F808900939B82 /* CDH_BarButtonItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDH_BarButtonItemView.xib; sourceTree = "<group>"; };
 		83DC4CB21D5F95D000939B82 /* CDH_CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_CategoryViewController.swift; sourceTree = "<group>"; };
+		83DC4CB41D5F977600939B82 /* CDH_DistrictViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_DistrictViewController.swift; sourceTree = "<group>"; };
+		83DC4CB61D5F978600939B82 /* CDH_SortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_SortViewController.swift; sourceTree = "<group>"; };
 		83E4DA4A1D5F77C500E42295 /* CDH_HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_HomeViewController.swift; sourceTree = "<group>"; };
 		83E4DA4C1D5F78D800E42295 /* CDH_NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_NavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +102,8 @@
 				83E4DA4C1D5F78D800E42295 /* CDH_NavigationController.swift */,
 				83E4DA4A1D5F77C500E42295 /* CDH_HomeViewController.swift */,
 				83DC4CB21D5F95D000939B82 /* CDH_CategoryViewController.swift */,
+				83DC4CB41D5F977600939B82 /* CDH_DistrictViewController.swift */,
+				83DC4CB61D5F978600939B82 /* CDH_SortViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -205,10 +211,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83DC4CB71D5F978600939B82 /* CDH_SortViewController.swift in Sources */,
 				8364B44E1D5EDCAC004F4A1A /* AppDelegate.swift in Sources */,
 				83DC4CB31D5F95D000939B82 /* CDH_CategoryViewController.swift in Sources */,
 				83E4DA4B1D5F77C500E42295 /* CDH_HomeViewController.swift in Sources */,
 				83E4DA4D1D5F78D800E42295 /* CDH_NavigationController.swift in Sources */,
+				83DC4CB51D5F977600939B82 /* CDH_DistrictViewController.swift in Sources */,
 				83DC4CAF1D5F807F00939B82 /* CDH_BarButtonItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

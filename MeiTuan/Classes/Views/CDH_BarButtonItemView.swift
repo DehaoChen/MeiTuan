@@ -16,14 +16,14 @@ class CDH_BarButtonItemView: UIView {
     @IBOutlet weak var iconButton: UIButton!
     
     // MARK: - 提供类方法快速创建
-    class func barButtonItemView( image : UIImage , highlightedImage : UIImage ,title : String , subTitleLabel : String) -> CDH_BarButtonItemView {
+    class func barButtonItemView( image : UIImage , highlightedImage : UIImage ,title : String , subTitle : String) -> CDH_BarButtonItemView {
         
         // 1.通过xib 加载控件
         let barButtonItemView = NSBundle.mainBundle().loadNibNamed("CDH_BarButtonItemView", owner: nil, options: nil).first as! CDH_BarButtonItemView
         
         // 2.初始化数据
         barButtonItemView.titleLabel.text = title
-        barButtonItemView.subTitleLabel.text = subTitleLabel
+        barButtonItemView.subTitleLabel.text = subTitle
         barButtonItemView.iconButton.setImage(image, forState: .Normal)
         barButtonItemView.iconButton.setImage(highlightedImage, forState: .Highlighted)
         return barButtonItemView
