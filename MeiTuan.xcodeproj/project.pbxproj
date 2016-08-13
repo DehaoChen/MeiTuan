@@ -11,6 +11,8 @@
 		8364B4531D5EDCAC004F4A1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4511D5EDCAC004F4A1A /* Main.storyboard */; };
 		8364B4551D5EDCAC004F4A1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4541D5EDCAC004F4A1A /* Assets.xcassets */; };
 		8364B4581D5EDCAC004F4A1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4561D5EDCAC004F4A1A /* LaunchScreen.storyboard */; };
+		83DC4CAF1D5F807F00939B82 /* CDH_BarButtonItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DC4CAE1D5F807F00939B82 /* CDH_BarButtonItemView.swift */; };
+		83DC4CB11D5F808900939B82 /* CDH_BarButtonItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83DC4CB01D5F808900939B82 /* CDH_BarButtonItemView.xib */; };
 		83E4DA4B1D5F77C500E42295 /* CDH_HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E4DA4A1D5F77C500E42295 /* CDH_HomeViewController.swift */; };
 		83E4DA4D1D5F78D800E42295 /* CDH_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E4DA4C1D5F78D800E42295 /* CDH_NavigationController.swift */; };
 /* End PBXBuildFile section */
@@ -22,6 +24,8 @@
 		8364B4541D5EDCAC004F4A1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8364B4571D5EDCAC004F4A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8364B4591D5EDCAC004F4A1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83DC4CAE1D5F807F00939B82 /* CDH_BarButtonItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_BarButtonItemView.swift; sourceTree = "<group>"; };
+		83DC4CB01D5F808900939B82 /* CDH_BarButtonItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDH_BarButtonItemView.xib; sourceTree = "<group>"; };
 		83E4DA4A1D5F77C500E42295 /* CDH_HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_HomeViewController.swift; sourceTree = "<group>"; };
 		83E4DA4C1D5F78D800E42295 /* CDH_NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_NavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,8 +93,8 @@
 		8364B4611D5EDD4B004F4A1A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				83E4DA4A1D5F77C500E42295 /* CDH_HomeViewController.swift */,
 				83E4DA4C1D5F78D800E42295 /* CDH_NavigationController.swift */,
+				83E4DA4A1D5F77C500E42295 /* CDH_HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -112,6 +116,8 @@
 		8364B4651D5EDD4B004F4A1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				83DC4CAE1D5F807F00939B82 /* CDH_BarButtonItemView.swift */,
+				83DC4CB01D5F808900939B82 /* CDH_BarButtonItemView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +191,7 @@
 				8364B4581D5EDCAC004F4A1A /* LaunchScreen.storyboard in Resources */,
 				8364B4551D5EDCAC004F4A1A /* Assets.xcassets in Resources */,
 				8364B4531D5EDCAC004F4A1A /* Main.storyboard in Resources */,
+				83DC4CB11D5F808900939B82 /* CDH_BarButtonItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +205,7 @@
 				8364B44E1D5EDCAC004F4A1A /* AppDelegate.swift in Sources */,
 				83E4DA4B1D5F77C500E42295 /* CDH_HomeViewController.swift in Sources */,
 				83E4DA4D1D5F78D800E42295 /* CDH_NavigationController.swift in Sources */,
+				83DC4CAF1D5F807F00939B82 /* CDH_BarButtonItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

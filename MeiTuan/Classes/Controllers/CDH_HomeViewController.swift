@@ -9,27 +9,32 @@
 import UIKit
 
 class CDH_HomeViewController: UIViewController {
+    
+    
+    // MARK: - 懒加载自定义的items控件
+    lazy var categoryItem : UIBarButtonItem = {
+        
+        
+        let categoryItem = UIBarButtonItem(customView: <#T##UIView#>)
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setUpBarButtonItems()
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+// MARK: - 布局子控件
+extension CDH_HomeViewController {
+    // MARK: - 据导航栏
+    func setUpBarButtonItems() -> Void {
+        // 1.设置logo的 item // plain 平铺模式
+        let  logoItem = UIBarButtonItem(image: UIImage(named: "icon_meituan_logo"), style: .Plain, target: nil, action: nil)
+        // 1.1 取消点击事件的功能
+        logoItem.enabled = false
+        
+        // 2.添加到导航栏
+        navigationItem.leftBarButtonItems = [logoItem]
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
