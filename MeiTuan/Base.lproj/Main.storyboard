@@ -27,7 +27,7 @@
         <!--Navigation Controller-->
         <scene sceneID="yIb-UE-3vL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jMJ-3C-9pY" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jMJ-3C-9pY" customClass="CDH_NavigationController" customModule="MeiTuan" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kYC-GZ-CPg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

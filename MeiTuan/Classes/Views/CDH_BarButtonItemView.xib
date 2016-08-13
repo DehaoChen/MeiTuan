@@ -1,15 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CDH_BarButtonItemView" customModule="MeiTuan" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="136" height="46"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbK-Ju-2IP">
+                    <rect key="frame" x="12" y="0.0" width="124" height="46"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                    <state key="normal" title="Button" image="icon_category_-1"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u6A-jX-vVF">
+                    <rect key="frame" x="10" y="5" width="2" height="36"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="2" id="Nnu-59-Ypp"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="美团" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaU-HB-eAW">
+                    <rect key="frame" x="62" y="0.0" width="74" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部分类" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2G-Jp-mPi">
+                    <rect key="frame" x="62" y="23" width="74" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="UaU-HB-eAW" secondAttribute="trailing" id="3wi-YO-3J1"/>
+                <constraint firstItem="x2G-Jp-mPi" firstAttribute="top" secondItem="UaU-HB-eAW" secondAttribute="bottom" id="40T-o7-LWw"/>
+                <constraint firstItem="u6A-jX-vVF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="8qV-JZ-df2"/>
+                <constraint firstAttribute="bottom" secondItem="u6A-jX-vVF" secondAttribute="bottom" constant="5" id="OO8-YP-VUI"/>
+                <constraint firstItem="x2G-Jp-mPi" firstAttribute="height" secondItem="UaU-HB-eAW" secondAttribute="height" id="QL4-bw-p7I"/>
+                <constraint firstItem="fbK-Ju-2IP" firstAttribute="leading" secondItem="u6A-jX-vVF" secondAttribute="trailing" id="Vgm-mm-GyI"/>
+                <constraint firstItem="UaU-HB-eAW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YNH-gE-dqN"/>
+                <constraint firstItem="x2G-Jp-mPi" firstAttribute="leading" secondItem="UaU-HB-eAW" secondAttribute="leading" id="ZJp-A6-M10"/>
+                <constraint firstAttribute="trailing" secondItem="x2G-Jp-mPi" secondAttribute="trailing" id="bJN-gn-ki4"/>
+                <constraint firstItem="fbK-Ju-2IP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fBr-QV-wHy"/>
+                <constraint firstItem="UaU-HB-eAW" firstAttribute="leading" secondItem="u6A-jX-vVF" secondAttribute="trailing" constant="50" id="kgz-wY-CEF"/>
+                <constraint firstAttribute="trailing" secondItem="fbK-Ju-2IP" secondAttribute="trailing" id="kzX-e7-KO8"/>
+                <constraint firstAttribute="bottom" secondItem="fbK-Ju-2IP" secondAttribute="bottom" id="l0S-hY-7ec"/>
+                <constraint firstItem="u6A-jX-vVF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="pNE-mK-5x3"/>
+                <constraint firstAttribute="bottom" secondItem="x2G-Jp-mPi" secondAttribute="bottom" id="xZA-Ch-AH0"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="iconButton" destination="fbK-Ju-2IP" id="vFG-84-Pfo"/>
+                <outlet property="subTitleLabel" destination="x2G-Jp-mPi" id="iXo-lH-ck7"/>
+                <outlet property="titleLabel" destination="UaU-HB-eAW" id="pmn-ed-AKB"/>
+            </connections>
+            <point key="canvasLocation" x="132" y="118"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon_category_-1" width="30" height="30"/>
+    </resources>
 </document>
