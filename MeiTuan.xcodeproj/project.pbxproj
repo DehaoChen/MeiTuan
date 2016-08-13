@@ -11,7 +11,7 @@
 		8364B4531D5EDCAC004F4A1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4511D5EDCAC004F4A1A /* Main.storyboard */; };
 		8364B4551D5EDCAC004F4A1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4541D5EDCAC004F4A1A /* Assets.xcassets */; };
 		8364B4581D5EDCAC004F4A1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4561D5EDCAC004F4A1A /* LaunchScreen.storyboard */; };
-		8364B4661D5EDD4B004F4A1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8364B4621D5EDD4B004F4A1A /* ViewController.swift */; };
+		83E4DA4B1D5F77C500E42295 /* CDH_HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E4DA4A1D5F77C500E42295 /* CDH_HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +21,7 @@
 		8364B4541D5EDCAC004F4A1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8364B4571D5EDCAC004F4A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8364B4591D5EDCAC004F4A1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8364B4621D5EDD4B004F4A1A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		83E4DA4A1D5F77C500E42295 /* CDH_HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,7 @@
 		8364B4611D5EDD4B004F4A1A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8364B4621D5EDD4B004F4A1A /* ViewController.swift */,
+				83E4DA4A1D5F77C500E42295 /* CDH_HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -146,6 +146,7 @@
 		8364B4421D5EDCAC004F4A1A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CDH_;
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = CDHao;
@@ -191,8 +192,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8364B4661D5EDD4B004F4A1A /* ViewController.swift in Sources */,
 				8364B44E1D5EDCAC004F4A1A /* AppDelegate.swift in Sources */,
+				83E4DA4B1D5F77C500E42295 /* CDH_HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +308,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = MeiTuan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chendehao.MeiTuan;
@@ -318,6 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = MeiTuan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chendehao.MeiTuan;
@@ -344,6 +347,7 @@
 				8364B45E1D5EDCAC004F4A1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
