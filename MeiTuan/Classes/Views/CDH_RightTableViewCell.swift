@@ -10,15 +10,25 @@ import UIKit
 
 class CDH_RightTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    // MARK: - 快速创建 rightTableViewCell 的方法
+    class func rightTableViewCell(tableView : UITableView) -> CDH_RightTableViewCell{
+        let rightTableViewCellID = "rightTableViewCellID"
+        var cell = tableView.dequeueReusableCellWithIdentifier(rightTableViewCellID) as? CDH_RightTableViewCell
+        if cell == nil {
+            cell = CDH_RightTableViewCell(style: .Default, reuseIdentifier: rightTableViewCellID)
+            
+        }
+        return cell!
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        // 设置背景图片
+        self.backgroundView = UIImageView(image: UIImage(named: "bg_dropdown_rightpart"))
+        self.selectedBackgroundView = UIImageView(image: UIImage(named: "bg_dropdown_right_selected"))
     }
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

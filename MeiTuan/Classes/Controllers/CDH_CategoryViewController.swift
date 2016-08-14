@@ -45,7 +45,6 @@ class CDH_CategoryViewController: UIViewController {
         for dict in categoryArray {
             tempDatas.append(CDH_CategoryItem(dict :  dict))
         }
-
         return tempDatas
     }()
 
@@ -63,8 +62,6 @@ class CDH_CategoryViewController: UIViewController {
 
 // MARK: - 添加子控件
 extension CDH_CategoryViewController {
-    
-    
 }
 
 // MARK: - CDH_DoubleTableViewDataSource
@@ -72,43 +69,66 @@ extension CDH_CategoryViewController : CDH_DoubleTableViewDataSource {
     
     // MARK: - leftTableViewDataSourceDataSource
     func leftTableView(leftTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return categoryDatas.count
     }
     func leftTableView(leftTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let letfTableViewCellID = "letfTableViewCellID"
-        var cell = leftTableView.dequeueReusableCellWithIdentifier(letfTableViewCellID)
-        if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: letfTableViewCellID)
-            cell?.backgroundColor = UIColor.greenColor()
-        }
-        cell?.textLabel?.text = "letfCell--123"
-        return cell!
+        // 创建 leftTableViewCell
+        let cell = CDH_LeftTableViewCell.leftTableViewCell(leftTableView)
+        // 设置数据
+        let categoryItem : CDH_CategoryItem = categoryDatas[indexPath.row]
+        cell.imageView?.image = UIImage(named: categoryItem.small_icon)
+        cell.textLabel?.text = categoryItem.name
+        
+        return cell
     }
     
+    
     // MARK: - rightTableViewDataSource
-    func rightTableView(rightTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func rightTableView(rightTableView: UITableView, numberOfRowsInSection section: Int, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView: NSIndexPath) -> Int {
         
-        let categoryItem : CDH_CategoryItem = categoryDatas[section]
+        let categoryItem : CDH_CategoryItem = categoryDatas[indexPathOfLeftTableView.row]
         // 如果没有子分类数据则返回 0
         return categoryItem.subcategories?.count ?? 0
     }
-    func rightTableView(rightTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let rightTableViewCellID = "letfTableViewCellID"
-        var cell = rightTableView.dequeueReusableCellWithIdentifier(rightTableViewCellID)
-        if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: rightTableViewCellID)
-            cell?.backgroundColor = UIColor.greenColor()
-        }
-        cell?.textLabel?.text = "rightCell--123"
-        return cell!
+    func rightTableView(rightTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView: NSIndexPath) -> UITableViewCell {
+ 
+        // 创建 rightTableViewCell
+        let cell = CDH_RightTableViewCell.rightTableViewCell(rightTableView)
+        // 设置数据
+        let categoryItem : CDH_CategoryItem = categoryDatas[indexPathOfLeftTableView.row]
+        cell.textLabel?.text = categoryItem.subcategories![indexPath.row]
+        
+        return cell
     }
-    
 }
 
 // MARK: - CDH_DoubleTableViewDelegate
 extension CDH_CategoryViewController : CDH_DoubleTableViewDelegate {
+    /// 代理方法, 点击左边cell的时候告诉代理,左边点击了第几行
+    func leftTableView(leftTableView : UITableView , didSelectRowAtIndexPath indexPath: NSIndexPath){
+        // 1.取出数据
+        let categoryItem = categoryDatas[indexPath.row]
+        guard let subcategories = categoryItem.subcategories else {
+            // 没有子分类则直接通过 闭包 回调设置分类按钮的数据显示
+            
+            
+            return
+        }
+        // 有分类则不通过 闭包 回调设置按钮数据的显示
+        // 但是此时, 要将子分类默认选中为右边的第 0 个(全部)的选项
+    }
     
+    /// 代理方法, 点击右边cell的时候告诉代理 右边点击了第几行,左边点击了第几行
+    func rightTableView(rightTableView : UITableView , didSelectRowAtIndexPath indexPath : NSIndexPath, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView : NSIndexPath ){
+        
+        // 1.取出数据模型
+        
+        // 2.取出右边点击子分类的数据
+        
+        // 3.通过 block 回调设置数据
+    
+    }
 }
 
 
