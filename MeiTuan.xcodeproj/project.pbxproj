@@ -14,6 +14,7 @@
 		833C62371D6014E2004F9284 /* gz.plist in Resources */ = {isa = PBXBuildFile; fileRef = 833C62341D6014E2004F9284 /* gz.plist */; };
 		833C62381D6014E2004F9284 /* sorts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 833C62351D6014E2004F9284 /* sorts.plist */; };
 		833C623A1D601537004F9284 /* CDH_CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833C62391D601537004F9284 /* CDH_CategoryItem.swift */; };
+		833C623C1D601B3C004F9284 /* CDH_RegionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833C623B1D601B3C004F9284 /* CDH_RegionItem.swift */; };
 		8364B44E1D5EDCAC004F4A1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8364B44D1D5EDCAC004F4A1A /* AppDelegate.swift */; };
 		8364B4531D5EDCAC004F4A1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4511D5EDCAC004F4A1A /* Main.storyboard */; };
 		8364B4551D5EDCAC004F4A1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4541D5EDCAC004F4A1A /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		833C62341D6014E2004F9284 /* gz.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gz.plist; sourceTree = "<group>"; };
 		833C62351D6014E2004F9284 /* sorts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sorts.plist; sourceTree = "<group>"; };
 		833C62391D601537004F9284 /* CDH_CategoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_CategoryItem.swift; sourceTree = "<group>"; };
+		833C623B1D601B3C004F9284 /* CDH_RegionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_RegionItem.swift; sourceTree = "<group>"; };
 		8364B44A1D5EDCAC004F4A1A /* MeiTuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeiTuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8364B44D1D5EDCAC004F4A1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8364B4521D5EDCAC004F4A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				833C622A1D601318004F9284 /* CDH_BaseItem.swift */,
 				833C62391D601537004F9284 /* CDH_CategoryItem.swift */,
+				833C623B1D601B3C004F9284 /* CDH_RegionItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				83E4DA4D1D5F78D800E42295 /* CDH_NavigationController.swift in Sources */,
 				83DC4CB51D5F977600939B82 /* CDH_DistrictViewController.swift in Sources */,
 				83DC4CAF1D5F807F00939B82 /* CDH_BarButtonItemView.swift in Sources */,
+				833C623C1D601B3C004F9284 /* CDH_RegionItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
