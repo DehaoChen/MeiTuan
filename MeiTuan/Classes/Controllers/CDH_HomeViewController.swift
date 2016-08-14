@@ -11,6 +11,35 @@ import UIKit
 class CDH_HomeViewController: UIViewController {
     
     
+    // MARK: - 懒加载控制器
+    lazy var categoryVC : CDH_CategoryViewController = {
+        // 创建内容控制器
+        let categoryVC = CDH_CategoryViewController()
+        
+        // 设置弹出样式为 popover
+        categoryVC.modalPresentationStyle = .Popover
+        
+        return categoryVC
+    }()
+    lazy var districtVC : CDH_DistrictViewController = {
+        // 创建内容控制器
+        let districtVC = CDH_DistrictViewController()
+        
+        // 设置弹出样式为 popover
+        districtVC.modalPresentationStyle = .Popover
+        
+        return districtVC
+    }()
+    lazy var sortVC : CDH_SortViewController = {
+        // 创建内容控制器
+        let sortVC = CDH_SortViewController()
+        
+        // 设置弹出样式为 popover
+        sortVC.modalPresentationStyle = .Popover
+        
+        return sortVC
+    }()
+    
     // MARK: - 懒加载自定义的items控件
     lazy var categoryItem : UIBarButtonItem = {
         // 初始化分类 Item
@@ -30,11 +59,12 @@ class CDH_HomeViewController: UIViewController {
         // 监听点击事件
         districtView.iconButton.addTarget(self, action: #selector(districtClick), forControlEvents: .TouchUpInside)
         
+        
         return districtItem
     }()
     lazy var sortItem : UIBarButtonItem = {
         // 初始化分类 Item
-        let sortView = CDH_BarButtonItemView.barButtonItemView(UIImage(named: "icon_sort")!, highlightedImage : UIImage(named: "icon_sort_highlighted" )!, title : "排序", subTitleLabel: "默认顺序")
+        let sortView = CDH_BarButtonItemView.barButtonItemView(UIImage(named: "icon_sort")!, highlightedImage : UIImage(named: "icon_sort_highlighted" )!, title : "排序", subTitle: "默认顺序")
         
         let sortItem = UIBarButtonItem(customView: sortView)
         
@@ -43,7 +73,6 @@ class CDH_HomeViewController: UIViewController {
         
         return sortItem
     }()
-   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,17 +85,47 @@ class CDH_HomeViewController: UIViewController {
 // MARK: - 按钮点击事件
 extension CDH_HomeViewController{
     @objc private func categoryClick(){
-        print("--categoryClick--")
-        
+        presentVC(categoryVC, barButtonItem: categoryItem)
     }
     @objc private func districtClick(){
-        print("--districtClick--")
+        presentVC(districtVC, barButtonItem: districtItem)
     }
     @objc private func sortClick(){
-        print("--sortClick--")
+        presentVC(sortVC, barButtonItem: sortItem)
+    }
+    private func presentVC(viewController : UIViewController, barButtonItem : UIBarButtonItem){
+        // 0.设置代理, 通过代理取消当点击了其他按钮的时候 dismiss 当天下拉菜单
+        viewController.popoverPresentationController?.delegate = self
+        // 1.设置内容控制器的弹出位置
+        viewController.popoverPresentationController?.barButtonItem = barButtonItem
+        // 2.弹出内容控制器
+        presentViewController(viewController, animated: true, completion: nil)
+        
+        // 3.将所有的按钮设置为不能点击
+        barButtonItemsDisable()
+    }
+    
+    // MARK: - 是否交互的方法
+    /// 可以交互
+    func barButtonItemsEnable() -> Void {
+        categoryItem.enabled = true
+        districtItem.enabled = true
+        sortItem.enabled = true
+    }
+    /// 不可以交互
+    func barButtonItemsDisable() -> Void {
+        categoryItem.enabled = false
+        districtItem.enabled = false
+        sortItem.enabled = false
     }
 }
-
+// MARK: - UIPopoverPresentationControllerDelegate
+extension CDH_HomeViewController : UIPopoverPresentationControllerDelegate {
+    // 当通过 popover 出来的 Controller 被 dismiss 时, 开启所有的 barButtonItems 交互使能
+    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+        barButtonItemsEnable()
+    }
+}
 
 
 // MARK: - 布局子控件

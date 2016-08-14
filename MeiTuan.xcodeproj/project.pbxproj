@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		833C62271D600C04004F9284 /* CDH_DoubleTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833C62261D600C04004F9284 /* CDH_DoubleTableView.swift */; };
+		833C62291D600C18004F9284 /* CDH_DoubleTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833C62281D600C18004F9284 /* CDH_DoubleTableView.xib */; };
 		8364B44E1D5EDCAC004F4A1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8364B44D1D5EDCAC004F4A1A /* AppDelegate.swift */; };
 		8364B4531D5EDCAC004F4A1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4511D5EDCAC004F4A1A /* Main.storyboard */; };
 		8364B4551D5EDCAC004F4A1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4541D5EDCAC004F4A1A /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		833C62261D600C04004F9284 /* CDH_DoubleTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_DoubleTableView.swift; sourceTree = "<group>"; };
+		833C62281D600C18004F9284 /* CDH_DoubleTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDH_DoubleTableView.xib; sourceTree = "<group>"; };
 		8364B44A1D5EDCAC004F4A1A /* MeiTuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeiTuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8364B44D1D5EDCAC004F4A1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8364B4521D5EDCAC004F4A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 			children = (
 				83DC4CAE1D5F807F00939B82 /* CDH_BarButtonItemView.swift */,
 				83DC4CB01D5F808900939B82 /* CDH_BarButtonItemView.xib */,
+				833C62261D600C04004F9284 /* CDH_DoubleTableView.swift */,
+				833C62281D600C18004F9284 /* CDH_DoubleTableView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 				8364B4581D5EDCAC004F4A1A /* LaunchScreen.storyboard in Resources */,
 				8364B4551D5EDCAC004F4A1A /* Assets.xcassets in Resources */,
 				8364B4531D5EDCAC004F4A1A /* Main.storyboard in Resources */,
+				833C62291D600C18004F9284 /* CDH_DoubleTableView.xib in Resources */,
 				83DC4CB11D5F808900939B82 /* CDH_BarButtonItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				833C62271D600C04004F9284 /* CDH_DoubleTableView.swift in Sources */,
 				83DC4CB71D5F978600939B82 /* CDH_SortViewController.swift in Sources */,
 				8364B44E1D5EDCAC004F4A1A /* AppDelegate.swift in Sources */,
 				83DC4CB31D5F95D000939B82 /* CDH_CategoryViewController.swift in Sources */,
@@ -334,6 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = MeiTuan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chendehao.MeiTuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -346,6 +355,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				INFOPLIST_FILE = MeiTuan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chendehao.MeiTuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
