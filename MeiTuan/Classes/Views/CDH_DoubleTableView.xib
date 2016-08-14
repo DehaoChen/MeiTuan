@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CDH_DoubleTableView" customModule="MeiTuan" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="312" height="327"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -33,6 +33,10 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="letfTableView" destination="5Uv-Bh-CR8" id="CzY-tO-y7r"/>
+                <outlet property="rightTableView" destination="DI2-03-SYI" id="Hfn-13-O8E"/>
+            </connections>
             <point key="canvasLocation" x="267" y="83.5"/>
         </view>
     </objects>

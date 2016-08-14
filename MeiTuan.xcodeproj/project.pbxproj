@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		833C62271D600C04004F9284 /* CDH_DoubleTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833C62261D600C04004F9284 /* CDH_DoubleTableView.swift */; };
 		833C62291D600C18004F9284 /* CDH_DoubleTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833C62281D600C18004F9284 /* CDH_DoubleTableView.xib */; };
+		833C622B1D601318004F9284 /* CDH_BaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833C622A1D601318004F9284 /* CDH_BaseItem.swift */; };
 		8364B44E1D5EDCAC004F4A1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8364B44D1D5EDCAC004F4A1A /* AppDelegate.swift */; };
 		8364B4531D5EDCAC004F4A1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4511D5EDCAC004F4A1A /* Main.storyboard */; };
 		8364B4551D5EDCAC004F4A1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8364B4541D5EDCAC004F4A1A /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		833C62261D600C04004F9284 /* CDH_DoubleTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_DoubleTableView.swift; sourceTree = "<group>"; };
 		833C62281D600C18004F9284 /* CDH_DoubleTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDH_DoubleTableView.xib; sourceTree = "<group>"; };
+		833C622A1D601318004F9284 /* CDH_BaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDH_BaseItem.swift; sourceTree = "<group>"; };
 		8364B44A1D5EDCAC004F4A1A /* MeiTuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeiTuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8364B44D1D5EDCAC004F4A1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8364B4521D5EDCAC004F4A1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +53,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		833C622C1D601376004F9284 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		8364B4411D5EDCAC004F4A1A = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +92,7 @@
 		8364B45F1D5EDD4B004F4A1A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				833C622C1D601376004F9284 /* Data */,
 				8364B4671D5EDD5C004F4A1A /* Tools */,
 				8364B4601D5EDD4B004F4A1A /* Categorys */,
 				8364B4611D5EDD4B004F4A1A /* Controllers */,
@@ -115,6 +125,7 @@
 		8364B4631D5EDD4B004F4A1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				833C622A1D601318004F9284 /* CDH_BaseItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				833C622B1D601318004F9284 /* CDH_BaseItem.swift in Sources */,
 				833C62271D600C04004F9284 /* CDH_DoubleTableView.swift in Sources */,
 				83DC4CB71D5F978600939B82 /* CDH_SortViewController.swift in Sources */,
 				8364B44E1D5EDCAC004F4A1A /* AppDelegate.swift in Sources */,
