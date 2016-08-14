@@ -52,15 +52,6 @@ class CDH_DoubleTableView: UIView {
     // MARK: - 记录属性
     var indexPathOfLeftTableView : NSIndexPath?
     
-//    var indexPathOfLeftTableView : NSIndexPath = {
-//        let indexPathOfLeftTableView = NSIndexPath()
-//        // 设置默认的索引位置为 第 0 个位置开始, 这里可以随便设置一个值即可, 
-//        // 但是如果没有设置的话, 在下面有某个地方用到indexPathOfTableView 这参数时时会直接报错
-//        indexPathOfLeftTableView.indexAtPosition(0)
-//        return indexPathOfLeftTableView
-//    }()
-    
-    
     // 加载xib 的时候会调动这个方法
     override func awakeFromNib() {
         // 必须先调用父类的方法
@@ -120,9 +111,8 @@ extension CDH_DoubleTableView : UITableViewDelegate {
             rightTableView.reloadData()
             delegate?.leftTableView?(tableView, didSelectRowAtIndexPath: indexPath)
             
-            
         }else{
-            delegate?.rightTableView!(tableView, didSelectRowAtIndexPath: indexPath, didSelectRowAtIndexPathOfLeftTableView: indexPathOfLeftTableView!)
+            delegate?.rightTableView?(tableView, didSelectRowAtIndexPath: indexPath, didSelectRowAtIndexPathOfLeftTableView: indexPathOfLeftTableView!)
         }
     }
 }

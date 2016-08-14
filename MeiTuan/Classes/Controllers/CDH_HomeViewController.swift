@@ -19,6 +19,34 @@ class CDH_HomeViewController: UIViewController {
         // 设置弹出样式为 popover
         categoryVC.modalPresentationStyle = .Popover
         
+        // 回调设置数据
+        categoryVC.categoryItemColsure = { [weak self](item ,subCategoryName) -> () in
+            
+            // 数据刷新之后隐藏控制器  
+            // 这里用动画延时所以可以现在设置数据之前, 如果当如果设置数据是耗时操作, 则是最好不要这样写
+            categoryVC.dismissViewControllerAnimated(true, completion: {
+                // 并且开启按钮点击功能
+                self!.barButtonItemsEnable()
+            })
+            
+            guard subCategoryName != nil else{
+                // 设置数据
+                let categoryView = self!.categoryItem.customView as! CDH_BarButtonItemView
+                categoryView.iconButton.setImage(UIImage(named: "icon_category_-1") , forState: .Normal)
+                categoryView.iconButton.setImage(UIImage(named: "icon_category_highlighted_-1"), forState: .Highlighted)
+                categoryView.titleLabel.text = "美团"
+                categoryView.subTitleLabel.text = "全部"
+                
+                return
+            }
+            // 设置数据
+            let categoryView = self!.categoryItem.customView as! CDH_BarButtonItemView
+            categoryView.iconButton.setImage(UIImage(named: item.icon) , forState: .Normal)
+            categoryView.iconButton.setImage(UIImage(named: item.highlighted_icon), forState: .Highlighted)
+            categoryView.titleLabel.text = item.name
+            categoryView.subTitleLabel.text = subCategoryName
+        }
+        
         return categoryVC
     }()
     lazy var districtVC : CDH_DistrictViewController = {
@@ -78,7 +106,6 @@ class CDH_HomeViewController: UIViewController {
         super.viewDidLoad()
 
         setUpBarButtonItems()
-        
     }
 }
 

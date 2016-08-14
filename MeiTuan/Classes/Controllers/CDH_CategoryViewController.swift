@@ -14,8 +14,13 @@
 
 import UIKit
 
+/// 自定义定义闭包,并且给闭包区别名 : 分类闭包
+typealias CategoryClosure = (( categoryItem : CDH_CategoryItem ,  subcategoryTitle : String?)->())
+
 class CDH_CategoryViewController: UIViewController {
     
+    // 定义一个闭包的属性
+    var categoryItemColsure = CategoryClosure?()
     
     // MARK: - 懒加载控件属性
     lazy private var doubleTableView : CDH_DoubleTableView = {
@@ -56,7 +61,6 @@ class CDH_CategoryViewController: UIViewController {
         
         // 添加子控件
         view.addSubview(doubleTableView)
-        
     }
 }
 
@@ -109,10 +113,10 @@ extension CDH_CategoryViewController : CDH_DoubleTableViewDelegate {
     func leftTableView(leftTableView : UITableView , didSelectRowAtIndexPath indexPath: NSIndexPath){
         // 1.取出数据
         let categoryItem = categoryDatas[indexPath.row]
-        guard let subcategories = categoryItem.subcategories else {
+        guard categoryItem.subcategories != nil else {
             // 没有子分类则直接通过 闭包 回调设置分类按钮的数据显示
-            
-            
+            categoryItemColsure!(categoryItem : categoryItem, subcategoryTitle: nil)
+    
             return
         }
         // 有分类则不通过 闭包 回调设置按钮数据的显示
@@ -120,14 +124,14 @@ extension CDH_CategoryViewController : CDH_DoubleTableViewDelegate {
     }
     
     /// 代理方法, 点击右边cell的时候告诉代理 右边点击了第几行,左边点击了第几行
-    func rightTableView(rightTableView : UITableView , didSelectRowAtIndexPath indexPath : NSIndexPath, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView : NSIndexPath ){
+    func rightTableView(rightTableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView: NSIndexPath) {
         
-        // 1.取出数据模型
+        // 1.取出数据
+        let categoryItem = categoryDatas[indexPathOfLeftTableView.row]
+        let subTitle = categoryItem.subcategories![indexPath.row]
         
         // 2.取出右边点击子分类的数据
-        
-        // 3.通过 block 回调设置数据
-    
+        categoryItemColsure!(categoryItem : categoryItem, subcategoryTitle : subTitle)
     }
 }
 

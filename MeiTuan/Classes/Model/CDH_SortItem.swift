@@ -12,3 +12,6 @@ class CDH_SortItem: CDH_BaseItem {
     var label : String = ""
     var value : Int = 0
 }
+
+
+

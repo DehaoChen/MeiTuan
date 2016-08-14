@@ -18,4 +18,6 @@ class CDH_BaseItem: NSObject {
     // 重写这个方法, 避免模型中 找不到与字典中对应的 key
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {}
 
+    
+    
 }

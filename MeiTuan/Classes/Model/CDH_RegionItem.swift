@@ -13,3 +13,7 @@ class CDH_RegionItem: CDH_BaseItem {
     var name : String = ""
     var subregions : [String]?
 }
+
+
+
+

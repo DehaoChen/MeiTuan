@@ -19,3 +19,6 @@ class CDH_CategoryItem: CDH_BaseItem {
     var map_icon : String = ""
     var subcategories : [String]?
 }
+
+
+
