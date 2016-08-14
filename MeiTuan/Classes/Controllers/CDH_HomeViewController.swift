@@ -20,7 +20,7 @@ class CDH_HomeViewController: UIViewController {
         categoryVC.modalPresentationStyle = .Popover
         
         // 回调设置数据
-        categoryVC.categoryItemColsure = { [weak self](item ,subCategoryName) -> () in
+        categoryVC.categoryItemColsure = { [weak self](item ,subTitle) -> () in
             
             // 数据刷新之后隐藏控制器  
             // 这里用动画延时所以可以现在设置数据之前, 如果当如果设置数据是耗时操作, 则是最好不要这样写
@@ -29,13 +29,13 @@ class CDH_HomeViewController: UIViewController {
                 self!.barButtonItemsEnable()
             })
             
-            guard subCategoryName != nil else{
+            guard subTitle != nil else{
                 // 设置数据
                 let categoryView = self!.categoryItem.customView as! CDH_BarButtonItemView
                 categoryView.iconButton.setImage(UIImage(named: "icon_category_-1") , forState: .Normal)
                 categoryView.iconButton.setImage(UIImage(named: "icon_category_highlighted_-1"), forState: .Highlighted)
                 categoryView.titleLabel.text = "美团"
-                categoryView.subTitleLabel.text = "全部"
+                categoryView.subTitleLabel.text = "全部分类"
                 
                 return
             }
@@ -44,19 +44,42 @@ class CDH_HomeViewController: UIViewController {
             categoryView.iconButton.setImage(UIImage(named: item.icon) , forState: .Normal)
             categoryView.iconButton.setImage(UIImage(named: item.highlighted_icon), forState: .Highlighted)
             categoryView.titleLabel.text = item.name
-            categoryView.subTitleLabel.text = subCategoryName
+            categoryView.subTitleLabel.text = subTitle
         }
         
         return categoryVC
     }()
-    lazy var districtVC : CDH_DistrictViewController = {
+    lazy var regionVC : CDH_RegionViewController = {
         // 创建内容控制器
-        let districtVC = CDH_DistrictViewController()
+        let regionVC = CDH_RegionViewController()
         
         // 设置弹出样式为 popover
-        districtVC.modalPresentationStyle = .Popover
+        regionVC.modalPresentationStyle = .Popover
         
-        return districtVC
+        // 回调设置数据
+        regionVC.regionItemColsure = {[weak self] (item , subTitle ) in
+            
+            // 数据刷新之后隐藏控制器
+            // 这里用动画延时所以可以现在设置数据之前, 如果当如果设置数据是耗时操作, 则是最好不要这样写
+            regionVC.dismissViewControllerAnimated(true, completion: {
+                // 并且开启按钮点击功能
+                self!.barButtonItemsEnable()
+            })
+            
+            guard subTitle != nil else{
+                // 设置数据
+                let regionView = self!.regionItem.customView as! CDH_BarButtonItemView
+                regionView.titleLabel.text = "广州"
+                regionView.subTitleLabel.text = "全部区域"
+                return
+            }
+            // 设置数据
+            let regionView = self!.regionItem.customView as! CDH_BarButtonItemView
+
+            regionView.titleLabel.text = item.name
+            regionView.subTitleLabel.text = subTitle
+        }
+        return regionVC
     }()
     lazy var sortVC : CDH_SortViewController = {
         // 创建内容控制器
@@ -78,17 +101,17 @@ class CDH_HomeViewController: UIViewController {
         categoryView.iconButton.addTarget(self, action: #selector(categoryClick), forControlEvents: .TouchUpInside)
         return categoryItem
     }()
-    lazy var districtItem : UIBarButtonItem = {
+    lazy var regionItem : UIBarButtonItem = {
         // 初始化分类 Item
-        let districtView = CDH_BarButtonItemView.barButtonItemView(UIImage(named: "icon_district" )!, highlightedImage: UIImage(named: "icon_district_highlighted")!, title: "广州", subTitle: "全部区域")
+        let regionView = CDH_BarButtonItemView.barButtonItemView(UIImage(named: "icon_district" )!, highlightedImage: UIImage(named: "icon_district_highlighted")!, title: "广州", subTitle: "全部区域")
         
-        let districtItem = UIBarButtonItem(customView: districtView)
+        let regionItem = UIBarButtonItem(customView: regionView)
         
         // 监听点击事件
-        districtView.iconButton.addTarget(self, action: #selector(districtClick), forControlEvents: .TouchUpInside)
+        regionView.iconButton.addTarget(self, action: #selector(regionClick), forControlEvents: .TouchUpInside)
         
         
-        return districtItem
+        return regionItem
     }()
     lazy var sortItem : UIBarButtonItem = {
         // 初始化分类 Item
@@ -114,8 +137,8 @@ extension CDH_HomeViewController{
     @objc private func categoryClick(){
         presentVC(categoryVC, barButtonItem: categoryItem)
     }
-    @objc private func districtClick(){
-        presentVC(districtVC, barButtonItem: districtItem)
+    @objc private func regionClick(){
+        presentVC(regionVC, barButtonItem: regionItem)
     }
     @objc private func sortClick(){
         presentVC(sortVC, barButtonItem: sortItem)
@@ -136,13 +159,13 @@ extension CDH_HomeViewController{
     /// 可以交互
     func barButtonItemsEnable() -> Void {
         categoryItem.enabled = true
-        districtItem.enabled = true
+        regionItem.enabled = true
         sortItem.enabled = true
     }
     /// 不可以交互
     func barButtonItemsDisable() -> Void {
         categoryItem.enabled = false
-        districtItem.enabled = false
+        regionItem.enabled = false
         sortItem.enabled = false
     }
 }
@@ -165,6 +188,6 @@ extension CDH_HomeViewController {
         logoItem.enabled = false
         
         // 2.添加到导航栏
-        navigationItem.leftBarButtonItems = [logoItem, categoryItem, districtItem, sortItem]
+        navigationItem.leftBarButtonItems = [logoItem, categoryItem, regionItem, sortItem]
     }
 }

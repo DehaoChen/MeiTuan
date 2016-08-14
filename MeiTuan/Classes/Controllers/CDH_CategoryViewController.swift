@@ -8,7 +8,7 @@
 
 /**
  CDH_CategoryViewController.swift : 使用的是系统的方法字典转模型
- CDH_DistrictViewController.swift : 使用的是 MJExtension 字典转模型
+ CDH_RegionViewController.swift : 使用的是 MJExtension 字典转模型
  CDH_SortViewController.swift : 使用的是 MJExtension 字典转模型
  */
 

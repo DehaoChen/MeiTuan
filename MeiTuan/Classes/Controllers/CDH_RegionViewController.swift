@@ -1,5 +1,5 @@
 //
-//  CDH_DistrictViewController.swift
+//  CDH_RegionViewController.swift
 //  MeiTuan
 //
 //  Created by chendehao on 16/8/14.
@@ -7,26 +7,20 @@
 //
 
 /**
- CDH_DistrictViewController.swift : 使用的是系统的方法字典转模型
- CDH_DistrictViewController.swift : 使用的是 MJExtension 字典转模型
- CDH_SortViewController.swift : 使用的是 MJExtension 字典转模型
- */
-
-/**
  CDH_CategoryViewController.swift : 使用的是系统的方法字典转模型
- CDH_DistrictViewController.swift : 使用的是 MJExtension 字典转模型
+ CDH_RegionViewController.swift : 使用的是 MJExtension 字典转模型
  CDH_SortViewController.swift : 使用的是 MJExtension 字典转模型
  */
 
 import UIKit
 
 /// 自定义定义闭包,并且给闭包区别名 : 分类闭包
-typealias DistrictClosure = ((regionItem : CDH_RegionItem ,  subregionTitle : String?)->())
+typealias RegionClosure = ((regionItem : CDH_RegionItem ,  subregionTitle : String?)->())
 
-class CDH_DistrictViewController: UIViewController {
+class CDH_RegionViewController: UIViewController {
 
      // 定义一个闭包的属性
-    var districtItemColsure = DistrictClosure?()
+    var regionItemColsure = RegionClosure?()
     
     // MARK: - 懒加载控件属性
     lazy private var doubleTableView : CDH_DoubleTableView = {
@@ -41,19 +35,19 @@ class CDH_DistrictViewController: UIViewController {
     }()
     
     // MARK: - 懒加载数据
-    lazy private var districtDatas : [CDH_RegionItem] = {
+    lazy private var regionDatas : [CDH_RegionItem] = {
         var tempDatas = [CDH_RegionItem]()
         
         // 1.获取到plist 文件的路径
-        let districtPath = NSBundle.mainBundle().pathForResource("gz", ofType: "plist")
+        let regionPath = NSBundle.mainBundle().pathForResource("gz", ofType: "plist")
         
         // 2.读取 plist 文件
-        guard let districtArray = NSArray(contentsOfFile: districtPath!) as? [[String : NSObject]] else {
+        guard let regionArray = NSArray(contentsOfFile: regionPath!) as? [[String : NSObject]] else {
             return tempDatas
         }
         
         // 3.将字典转模型对象
-        for dict in districtArray {
+        for dict in regionArray {
             tempDatas.append(CDH_RegionItem(dict :  dict))
         }
         return tempDatas
@@ -71,23 +65,23 @@ class CDH_DistrictViewController: UIViewController {
 }
 
 // MARK: - 添加子控件
-extension CDH_DistrictViewController {
+extension CDH_RegionViewController {
 }
 
 // MARK: - CDH_DoubleTableViewDataSource
-extension CDH_DistrictViewController : CDH_DoubleTableViewDataSource {
+extension CDH_RegionViewController : CDH_DoubleTableViewDataSource {
     
     // MARK: - leftTableViewDataSourceDataSource
     func leftTableView(leftTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return districtDatas.count
+        return regionDatas.count
     }
     func leftTableView(leftTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // 创建 leftTableViewCell
         let cell = CDH_LeftTableViewCell.leftTableViewCell(leftTableView)
         // 设置数据
-        let districtItem : CDH_RegionItem = districtDatas[indexPath.row]
-        cell.textLabel?.text = districtItem.name
+        let regionItem : CDH_RegionItem = regionDatas[indexPath.row]
+        cell.textLabel?.text = regionItem.name
         
         return cell
     }
@@ -96,31 +90,31 @@ extension CDH_DistrictViewController : CDH_DoubleTableViewDataSource {
     // MARK: - rightTableViewDataSource
     func rightTableView(rightTableView: UITableView, numberOfRowsInSection section: Int, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView: NSIndexPath) -> Int {
         
-        let districtItem : CDH_RegionItem = districtDatas[indexPathOfLeftTableView.row]
+        let regionItem : CDH_RegionItem = regionDatas[indexPathOfLeftTableView.row]
         // 如果没有子分类数据则返回 0
-        return districtItem.subregions?.count ?? 0
+        return regionItem.subregions?.count ?? 0
     }
     func rightTableView(rightTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView: NSIndexPath) -> UITableViewCell {
         
         // 创建 rightTableViewCell
         let cell = CDH_RightTableViewCell.rightTableViewCell(rightTableView)
         // 设置数据
-        let districtItem : CDH_RegionItem = districtDatas[indexPathOfLeftTableView.row]
-        cell.textLabel?.text = districtItem.subregions![indexPath.row]
+        let regionItem : CDH_RegionItem = regionDatas[indexPathOfLeftTableView.row]
+        cell.textLabel?.text = regionItem.subregions![indexPath.row]
         
         return cell
     }
 }
 
 // MARK: - CDH_DoubleTableViewDelegate
-extension CDH_DistrictViewController : CDH_DoubleTableViewDelegate {
+extension CDH_RegionViewController : CDH_DoubleTableViewDelegate {
     /// 代理方法, 点击左边cell的时候告诉代理,左边点击了第几行
     func leftTableView(leftTableView : UITableView , didSelectRowAtIndexPath indexPath: NSIndexPath){
         // 1.取出数据
-        let districtItem = districtDatas[indexPath.row]
-        guard districtItem.subregions != nil else {
+        let regionItem = regionDatas[indexPath.row]
+        guard regionItem.subregions != nil else {
             // 没有子分类则直接通过 闭包 回调设置分类按钮的数据显示
-            districtItemColsure!(regionItem : districtItem, subregionTitle: nil)
+            regionItemColsure!(regionItem : regionItem, subregionTitle: nil)
             
             return
         }
@@ -132,11 +126,11 @@ extension CDH_DistrictViewController : CDH_DoubleTableViewDelegate {
     func rightTableView(rightTableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView: NSIndexPath) {
         
         // 1.取出数据
-        let districtItem = districtDatas[indexPathOfLeftTableView.row]
-        let subTitle = districtItem.subregions![indexPath.row]
+        let regionItem = regionDatas[indexPathOfLeftTableView.row]
+        let subTitle = regionItem.subregions![indexPath.row]
         
         // 2.取出右边点击子分类的数据
-        districtItemColsure!(regionItem : districtItem, subregionTitle : subTitle)
+        regionItemColsure!(regionItem : regionItem, subregionTitle : subTitle)
     }
 }
 
