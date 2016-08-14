@@ -15,9 +15,8 @@ class CDH_BaseItem: NSObject {
         
         setValuesForKeysWithDictionary(dict)
     }
-    // 重写这个方法, 避免模型中 找不到与字典中对应的 key
+    // 重写这个方法, 避免模型中 找不到对应的属性与字典中 key 配对
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {}
 
-    
     
 }
