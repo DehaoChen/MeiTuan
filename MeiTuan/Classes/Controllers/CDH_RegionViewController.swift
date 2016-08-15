@@ -114,7 +114,7 @@ extension CDH_RegionViewController : CDH_DoubleTableViewDelegate {
         let regionItem = regionDatas[indexPath.row]
         guard regionItem.subregions != nil else {
             // 没有子分类则直接通过 闭包 回调设置分类按钮的数据显示
-            regionItemColsure!(regionItem : regionItem, subregionTitle: nil)
+            regionItemColsure?(regionItem : regionItem, subregionTitle: nil)
             
             return
         }
@@ -130,7 +130,7 @@ extension CDH_RegionViewController : CDH_DoubleTableViewDelegate {
         let subTitle = regionItem.subregions![indexPath.row]
         
         // 2.取出右边点击子分类的数据
-        regionItemColsure!(regionItem : regionItem, subregionTitle : subTitle)
+        regionItemColsure?(regionItem : regionItem, subregionTitle : subTitle)
     }
 }
 

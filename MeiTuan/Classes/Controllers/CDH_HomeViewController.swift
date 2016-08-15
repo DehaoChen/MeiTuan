@@ -88,6 +88,25 @@ class CDH_HomeViewController: UIViewController {
         // 设置弹出样式为 popover
         sortVC.modalPresentationStyle = .Popover
         
+        // 回调设置数据
+        sortVC.SortItemColsure = { [weak self] (item , subTitle) -> () in
+            // 数据刷新之后隐藏控制器
+            // 这里用动画延时所以可以现在设置数据之前, 如果当如果设置数据是耗时操作, 则是最好不要这样写
+            sortVC.dismissViewControllerAnimated(true, completion: {
+                // 并且开启按钮点击功能
+                self!.barButtonItemsEnable()
+            })
+            
+            guard subTitle != nil else{
+                // 设置数据
+                let sortView = self!.sortItem.customView as! CDH_BarButtonItemView
+                sortView.subTitleLabel.text = "默认顺序"
+                return
+            }
+            // 设置数据
+            let sortView = self!.sortItem.customView as! CDH_BarButtonItemView
+            sortView.subTitleLabel.text = subTitle
+        }
         return sortVC
     }()
     
