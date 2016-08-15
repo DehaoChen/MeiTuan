@@ -161,7 +161,9 @@ extension CDH_HomeViewController : UIPopoverPresentationControllerDelegate {
 
 ##3. <a name = "分类界面"></a>分类界面
 ###3.1 下拉菜单分类界面
+
 * **分类控制的显示**
+
 ![image](images/Snip20160815_65.png)
 ![image](images/Snip20160815_67.png)
 
