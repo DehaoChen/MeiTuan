@@ -13,10 +13,10 @@ class CDH_BaseItem: NSObject {
     init(dict : [String : NSObject]){
         super.init()
         
-        setValuesForKeysWithDictionary(dict)
+        setValuesForKeys(dict)
     }
     // 重写这个方法, 避免模型中 找不到对应的属性与字典中 key 配对
-    override func setValue(value: AnyObject?, forUndefinedKey key: String) {}
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {}
 
     
 }

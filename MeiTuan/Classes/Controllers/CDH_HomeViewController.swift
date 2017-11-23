@@ -17,14 +17,14 @@ class CDH_HomeViewController: UIViewController {
         let categoryVC = CDH_CategoryViewController()
         
         // 设置弹出样式为 popover
-        categoryVC.modalPresentationStyle = .Popover
+        categoryVC.modalPresentationStyle = .popover
         
         // 回调设置数据
         categoryVC.categoryItemColsure = { [weak self](item ,subTitle) -> () in
             
             // 数据刷新之后隐藏控制器  
             // 这里用动画延时所以可以现在设置数据之前, 如果当如果设置数据是耗时操作, 则是最好不要这样写
-            categoryVC.dismissViewControllerAnimated(true, completion: {
+            categoryVC.dismiss(animated: true, completion: {
                 // 并且开启按钮点击功能
                 self!.barButtonItemsEnable()
             })
@@ -32,8 +32,8 @@ class CDH_HomeViewController: UIViewController {
             guard subTitle != nil else{
                 // 设置数据
                 let categoryView = self!.categoryItem.customView as! CDH_BarButtonItemView
-                categoryView.iconButton.setImage(UIImage(named: "icon_category_-1") , forState: .Normal)
-                categoryView.iconButton.setImage(UIImage(named: "icon_category_highlighted_-1"), forState: .Highlighted)
+                categoryView.iconButton.setImage(UIImage(named: "icon_category_-1") , for: UIControlState())
+                categoryView.iconButton.setImage(UIImage(named: "icon_category_highlighted_-1"), for: .highlighted)
                 categoryView.titleLabel.text = "美团"
                 categoryView.subTitleLabel.text = "全部分类"
                 
@@ -41,8 +41,8 @@ class CDH_HomeViewController: UIViewController {
             }
             // 设置数据
             let categoryView = self!.categoryItem.customView as! CDH_BarButtonItemView
-            categoryView.iconButton.setImage(UIImage(named: item.icon) , forState: .Normal)
-            categoryView.iconButton.setImage(UIImage(named: item.highlighted_icon), forState: .Highlighted)
+            categoryView.iconButton.setImage(UIImage(named: item.icon) , for: UIControlState())
+            categoryView.iconButton.setImage(UIImage(named: item.highlighted_icon), for: .highlighted)
             categoryView.titleLabel.text = item.name
             categoryView.subTitleLabel.text = subTitle
         }
@@ -54,14 +54,14 @@ class CDH_HomeViewController: UIViewController {
         let regionVC = CDH_RegionViewController()
         
         // 设置弹出样式为 popover
-        regionVC.modalPresentationStyle = .Popover
+        regionVC.modalPresentationStyle = .popover
         
         // 回调设置数据
         regionVC.regionItemColsure = {[weak self] (item , subTitle ) in
             
             // 数据刷新之后隐藏控制器
             // 这里用动画延时所以可以现在设置数据之前, 如果当如果设置数据是耗时操作, 则是最好不要这样写
-            regionVC.dismissViewControllerAnimated(true, completion: {
+            regionVC.dismiss(animated: true, completion: {
                 // 并且开启按钮点击功能
                 self!.barButtonItemsEnable()
             })
@@ -86,13 +86,13 @@ class CDH_HomeViewController: UIViewController {
         let sortVC = CDH_SortViewController()
         
         // 设置弹出样式为 popover
-        sortVC.modalPresentationStyle = .Popover
+        sortVC.modalPresentationStyle = .popover
         
         // 回调设置数据
         sortVC.SortItemColsure = { [weak self] (item , subTitle) -> () in
             // 数据刷新之后隐藏控制器
             // 这里用动画延时所以可以现在设置数据之前, 如果当如果设置数据是耗时操作, 则是最好不要这样写
-            sortVC.dismissViewControllerAnimated(true, completion: {
+            sortVC.dismiss(animated: true, completion: {
                 // 并且开启按钮点击功能
                 self!.barButtonItemsEnable()
             })
@@ -117,7 +117,7 @@ class CDH_HomeViewController: UIViewController {
         let categoryItem = UIBarButtonItem(customView: categoryView)
         
         // 监听点击事件
-        categoryView.iconButton.addTarget(self, action: #selector(categoryClick), forControlEvents: .TouchUpInside)
+        categoryView.iconButton.addTarget(self, action: #selector(categoryClick), for: .touchUpInside)
         return categoryItem
     }()
     lazy var regionItem : UIBarButtonItem = {
@@ -127,7 +127,7 @@ class CDH_HomeViewController: UIViewController {
         let regionItem = UIBarButtonItem(customView: regionView)
         
         // 监听点击事件
-        regionView.iconButton.addTarget(self, action: #selector(regionClick), forControlEvents: .TouchUpInside)
+        regionView.iconButton.addTarget(self, action: #selector(regionClick), for: .touchUpInside)
         
         
         return regionItem
@@ -139,7 +139,7 @@ class CDH_HomeViewController: UIViewController {
         let sortItem = UIBarButtonItem(customView: sortView)
         
         // 监听点击事件
-        sortView.iconButton.addTarget(self, action: #selector(sortClick), forControlEvents: .TouchUpInside)
+        sortView.iconButton.addTarget(self, action: #selector(sortClick), for: .touchUpInside)
         
         return sortItem
     }()
@@ -153,22 +153,22 @@ class CDH_HomeViewController: UIViewController {
 
 // MARK: - 按钮点击事件
 extension CDH_HomeViewController{
-    @objc private func categoryClick(){
+    @objc fileprivate func categoryClick(){
         presentVC(categoryVC, barButtonItem: categoryItem)
     }
-    @objc private func regionClick(){
+    @objc fileprivate func regionClick(){
         presentVC(regionVC, barButtonItem: regionItem)
     }
-    @objc private func sortClick(){
+    @objc fileprivate func sortClick(){
         presentVC(sortVC, barButtonItem: sortItem)
     }
-    private func presentVC(viewController : UIViewController, barButtonItem : UIBarButtonItem){
+    fileprivate func presentVC(_ viewController : UIViewController, barButtonItem : UIBarButtonItem){
         // 0.设置代理, 通过代理取消当点击了其他按钮的时候 dismiss 当天下拉菜单
         viewController.popoverPresentationController?.delegate = self
         // 1.设置内容控制器的弹出位置
         viewController.popoverPresentationController?.barButtonItem = barButtonItem
         // 2.弹出内容控制器
-        presentViewController(viewController, animated: true, completion: nil)
+        present(viewController, animated: true, completion: nil)
         
         // 3.将所有的按钮设置为不能点击
         barButtonItemsDisable()
@@ -177,21 +177,21 @@ extension CDH_HomeViewController{
     // MARK: - 是否交互的方法
     /// 可以交互
     func barButtonItemsEnable() -> Void {
-        categoryItem.enabled = true
-        regionItem.enabled = true
-        sortItem.enabled = true
+        categoryItem.isEnabled = true
+        regionItem.isEnabled = true
+        sortItem.isEnabled = true
     }
     /// 不可以交互
     func barButtonItemsDisable() -> Void {
-        categoryItem.enabled = false
-        regionItem.enabled = false
-        sortItem.enabled = false
+        categoryItem.isEnabled = false
+        regionItem.isEnabled = false
+        sortItem.isEnabled = false
     }
 }
 // MARK: - UIPopoverPresentationControllerDelegate
 extension CDH_HomeViewController : UIPopoverPresentationControllerDelegate {
     // 当通过 popover 出来的 Controller 被 dismiss 时, 开启所有的 barButtonItems 交互使能
-    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
         barButtonItemsEnable()
     }
 }
@@ -202,9 +202,9 @@ extension CDH_HomeViewController {
     // MARK: - 据导航栏
     func setUpBarButtonItems() -> Void {
         // 1.设置logo的 item // plain 平铺模式
-        let  logoItem = UIBarButtonItem(image: UIImage(named: "icon_meituan_logo"), style: .Plain, target: nil, action: nil)
+        let  logoItem = UIBarButtonItem(image: UIImage(named: "icon_meituan_logo"), style: .plain, target: nil, action: nil)
         // 1.1 取消点击事件的功能
-        logoItem.enabled = false
+        logoItem.isEnabled = false
         
         // 2.添加到导航栏
         navigationItem.leftBarButtonItems = [logoItem, categoryItem, regionItem, sortItem]

@@ -15,10 +15,10 @@ class CDH_NavigationController: UINavigationController {
     override class func initialize() {
         
         // 取出导航条
-        let navigationbar = UINavigationBar.appearanceWhenContainedInInstancesOfClasses([self])
+        let navigationbar = UINavigationBar.appearance(whenContainedInInstancesOf: [self])
         
         // 设置导航条的背景图片
-        navigationbar.setBackgroundImage(UIImage(named: "bg_navigationBar_normal"), forBarMetrics: .Default)
+        navigationbar.setBackgroundImage(UIImage(named: "bg_navigationBar_normal"), for: .default)
     }
 
 }

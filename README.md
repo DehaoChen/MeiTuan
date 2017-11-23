@@ -20,8 +20,9 @@
 ###1.1 显示效果
 
 * **美团导航栏背景图设置**
-![image](images/Snip20160815_60.png)
-![image](images/Snip20160815_62.png)
+
+	![image](images/Snip20160815_62.png)
+	![image](images/Snip20160815_60.png)
 
 
 * **根据以上两个图可以看出:**

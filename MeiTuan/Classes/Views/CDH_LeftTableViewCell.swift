@@ -11,11 +11,11 @@ import UIKit
 class CDH_LeftTableViewCell: UITableViewCell {
     
     // MARK: - 快速创建 leftTableViewCell 的方法
-    class func leftTableViewCell(tableView : UITableView) -> CDH_LeftTableViewCell{
+    class func leftTableViewCell(_ tableView : UITableView) -> CDH_LeftTableViewCell{
         let letfTableViewCellID = "letfTableViewCellID"
-        var cell = tableView.dequeueReusableCellWithIdentifier(letfTableViewCellID) as? CDH_LeftTableViewCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: letfTableViewCellID) as? CDH_LeftTableViewCell
         if cell == nil {
-            cell = CDH_LeftTableViewCell(style: .Default, reuseIdentifier: letfTableViewCellID)
+            cell = CDH_LeftTableViewCell(style: .default, reuseIdentifier: letfTableViewCellID)
             
         }
         return cell!

@@ -11,11 +11,11 @@ import UIKit
 class CDH_RightTableViewCell: UITableViewCell {
 
     // MARK: - 快速创建 rightTableViewCell 的方法
-    class func rightTableViewCell(tableView : UITableView) -> CDH_RightTableViewCell{
+    class func rightTableViewCell(_ tableView : UITableView) -> CDH_RightTableViewCell{
         let rightTableViewCellID = "rightTableViewCellID"
-        var cell = tableView.dequeueReusableCellWithIdentifier(rightTableViewCellID) as? CDH_RightTableViewCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: rightTableViewCellID) as? CDH_RightTableViewCell
         if cell == nil {
-            cell = CDH_RightTableViewCell(style: .Default, reuseIdentifier: rightTableViewCellID)
+            cell = CDH_RightTableViewCell(style: .default, reuseIdentifier: rightTableViewCellID)
             
         }
         return cell!

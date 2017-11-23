@@ -15,23 +15,23 @@
 import UIKit
 
 /// 自定义定义闭包,并且给闭包区别名 : 分类闭包
-typealias SortClosure = ((sortItem : CDH_SortItem ,  subSortTitle : String?)->())
+typealias SortClosure = (( _ sortItem : CDH_SortItem ,  _ subSortTitle : String?)->())
 
 class CDH_SortViewController: UIViewController {
     
     // 定义一个闭包的属性
-    var SortItemColsure = SortClosure?()
+    var SortItemColsure : SortClosure?
     
     // 当前选中的按钮
     var selectedButton : UIButton?
     
     
     // MARK: - 懒加载数据
-    lazy private var sortDatas : [CDH_SortItem] = {
+    lazy fileprivate var sortDatas : [CDH_SortItem] = {
         var tempDatas = [CDH_SortItem]()
         
         // 1.获取到plist 文件的路径
-        let SortPath = NSBundle.mainBundle().pathForResource("sorts", ofType: "plist")
+        let SortPath = Bundle.main.path(forResource: "sorts", ofType: "plist")
         
         // 2.读取 plist 文件
         guard let SortArray = NSArray(contentsOfFile: SortPath!) as? [[String : NSObject]] else {
@@ -47,7 +47,7 @@ class CDH_SortViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         // 设置在 Popover 中的尺寸, 320, 480 比较好看, 随便设置也可以
         preferredContentSize = CGSize(width: 320, height: 480)
         
@@ -83,31 +83,31 @@ extension CDH_SortViewController {
             button.frame = CGRect(x: edgeMargin, y: itemMargin + (itemMargin + itemH) * CGFloat(i), width: itemW, height: itemH)
             
             // 3.设置其他属性
-            button.setTitle(sortDatas[i].label, forState: .Normal)
-            button.titleLabel?.font = UIFont.systemFontOfSize(16.0)
-            button.setTitleColor(UIColor.blackColor(), forState: .Normal)
-            button.setTitleColor(UIColor.whiteColor(), forState: .Selected)
-            button.setBackgroundImage(UIImage(named: "btn_filter_normal"), forState: .Normal)
-            button.setBackgroundImage(UIImage(named: "btn_filter_selected"), forState: .Selected)
+            button.setTitle(sortDatas[i].label, for: UIControlState())
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 16.0)
+            button.setTitleColor(UIColor.black, for: UIControlState())
+            button.setTitleColor(UIColor.white, for: .selected)
+            button.setBackgroundImage(UIImage(named: "btn_filter_normal"), for: UIControlState())
+            button.setBackgroundImage(UIImage(named: "btn_filter_selected"), for: .selected)
             
             // 4.将 button 添加到控制 view 中
             view.addSubview(button)
             
             // 5.监听点击
-            button.addTarget(self, action: #selector(buttonClick(_:)), forControlEvents: .TouchUpInside)
+            button.addTarget(self, action: #selector(buttonClick(_:)), for: .touchUpInside)
         }
     }
 }
 
 extension CDH_SortViewController {
-    func buttonClick(sender : UIButton) -> Void {
-        selectedButton?.selected = false
+    func buttonClick(_ sender : UIButton) -> Void {
+        selectedButton?.isSelected = false
         selectedButton = sender
-        selectedButton?.selected = true
+        selectedButton?.isSelected = true
         
         // 取出模型
         let sortItem = sortDatas[sender.tag]
-        SortItemColsure?(sortItem: sortItem, subSortTitle: sortItem.label)
+        SortItemColsure?(sortItem, sortItem.label)
     }
 }
 

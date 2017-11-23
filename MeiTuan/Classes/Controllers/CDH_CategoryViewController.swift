@@ -15,15 +15,15 @@
 import UIKit
 
 /// 自定义定义闭包,并且给闭包区别名 : 分类闭包
-typealias CategoryClosure = (( categoryItem : CDH_CategoryItem ,  subcategoryTitle : String?)->())
+typealias CategoryClosure = (( _ categoryItem : CDH_CategoryItem ,  _ subcategoryTitle : String?)->())
 
 class CDH_CategoryViewController: UIViewController {
     
     // 定义一个闭包的属性
-    var categoryItemColsure = CategoryClosure?()
+    var categoryItemColsure : CategoryClosure?
     
     // MARK: - 懒加载控件属性
-    lazy private var doubleTableView : CDH_DoubleTableView = {
+    lazy fileprivate var doubleTableView : CDH_DoubleTableView = {
         let doubleTableView = CDH_DoubleTableView.doubleTableView()
         // 设置 frame
         doubleTableView.frame = self.view.bounds
@@ -35,11 +35,11 @@ class CDH_CategoryViewController: UIViewController {
     }()
     
     // MARK: - 懒加载数据
-    lazy private var categoryDatas : [CDH_CategoryItem] = {
+    lazy fileprivate var categoryDatas : [CDH_CategoryItem] = {
         var tempDatas = [CDH_CategoryItem]()
         
         // 1.获取到plist 文件的路径
-        let categoryPath = NSBundle.mainBundle().pathForResource("categories", ofType: "plist")
+        let categoryPath = Bundle.main.path(forResource: "categories", ofType: "plist")
         
         // 2.读取 plist 文件
         guard let categoryArray = NSArray(contentsOfFile: categoryPath!) as? [[String : NSObject]] else {
@@ -55,7 +55,7 @@ class CDH_CategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         // 设置在 Popover 中的尺寸, 320, 480 比较好看, 随便设置也可以
         preferredContentSize = CGSize(width: 320, height: 480)
         
@@ -72,10 +72,10 @@ extension CDH_CategoryViewController {
 extension CDH_CategoryViewController : CDH_DoubleTableViewDataSource {
     
     // MARK: - leftTableViewDataSourceDataSource
-    func leftTableView(leftTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func leftTableView(_ leftTableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoryDatas.count
     }
-    func leftTableView(leftTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func leftTableView(_ leftTableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         
         // 创建 leftTableViewCell
         let cell = CDH_LeftTableViewCell.leftTableViewCell(leftTableView)
@@ -89,13 +89,13 @@ extension CDH_CategoryViewController : CDH_DoubleTableViewDataSource {
     
     
     // MARK: - rightTableViewDataSource
-    func rightTableView(rightTableView: UITableView, numberOfRowsInSection section: Int, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView: NSIndexPath) -> Int {
+    func rightTableView(_ rightTableView: UITableView, numberOfRowsInSection section: Int, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView: IndexPath) -> Int {
         
         let categoryItem : CDH_CategoryItem = categoryDatas[indexPathOfLeftTableView.row]
         // 如果没有子分类数据则返回 0
         return categoryItem.subcategories?.count ?? 0
     }
-    func rightTableView(rightTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView: NSIndexPath) -> UITableViewCell {
+    func rightTableView(_ rightTableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView: IndexPath) -> UITableViewCell {
  
         // 创建 rightTableViewCell
         let cell = CDH_RightTableViewCell.rightTableViewCell(rightTableView)
@@ -110,12 +110,12 @@ extension CDH_CategoryViewController : CDH_DoubleTableViewDataSource {
 // MARK: - CDH_DoubleTableViewDelegate
 extension CDH_CategoryViewController : CDH_DoubleTableViewDelegate {
     /// 代理方法, 点击左边cell的时候告诉代理,左边点击了第几行
-    func leftTableView(leftTableView : UITableView , didSelectRowAtIndexPath indexPath: NSIndexPath){
+    func leftTableView(_ leftTableView : UITableView , didSelectRowAtIndexPath indexPath: IndexPath){
         // 1.取出数据
         let categoryItem = categoryDatas[indexPath.row]
         guard categoryItem.subcategories != nil else {
             // 没有子分类则直接通过 闭包 回调设置分类按钮的数据显示
-            categoryItemColsure!(categoryItem : categoryItem, subcategoryTitle: nil)
+            categoryItemColsure!(categoryItem, nil)
     
             return
         }
@@ -124,14 +124,14 @@ extension CDH_CategoryViewController : CDH_DoubleTableViewDelegate {
     }
     
     /// 代理方法, 点击右边cell的时候告诉代理 右边点击了第几行,左边点击了第几行
-    func rightTableView(rightTableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView: NSIndexPath) {
+    func rightTableView(_ rightTableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath, didSelectRowAtIndexPathOfLeftTableView indexPathOfLeftTableView: IndexPath) {
         
         // 1.取出数据
         let categoryItem = categoryDatas[indexPathOfLeftTableView.row]
         let subTitle = categoryItem.subcategories![indexPath.row]
         
         // 2.取出右边点击子分类的数据
-        categoryItemColsure!(categoryItem : categoryItem, subcategoryTitle : subTitle)
+        categoryItemColsure!(categoryItem, subTitle)
     }
 }
 
